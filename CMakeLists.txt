@@ -38,7 +38,7 @@ if (SODIUM_FOUND)
 endif()
 
 set(STBIN TRUE)
-find_package(gmp)
+#find_package(gmp)
 if (GMP_FOUND)
   message(STATUS "Found libgmp")
   set(ARITH "gmp" CACHE STRING "")
