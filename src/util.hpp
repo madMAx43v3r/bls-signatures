@@ -15,6 +15,7 @@
 #ifndef SRC_BLSUTIL_HPP_
 #define SRC_BLSUTIL_HPP_
 
+#include <algorithm>
 #include <iomanip>
 #include <sstream>
 #include <string>
@@ -59,7 +60,7 @@ class Util {
     static std::string HexStr(const uint8_t* data, size_t len) {
         std::stringstream s;
         s << std::hex;
-        for (int i=0; i < len; ++i)
+        for (size_t i=0; i < len; ++i)
             s << std::setw(2) << std::setfill('0') << static_cast<int>(data[i]);
         return s.str();
     }
@@ -67,7 +68,7 @@ class Util {
     static std::string HexStr(const std::vector<uint8_t> &data) {
         std::stringstream s;
         s << std::hex;
-        for (int i=0; i < data.size(); ++i)
+        for (size_t i=0; i < data.size(); ++i)
             s << std::setw(2) << std::setfill('0') << static_cast<int>(data[i]);
         return s.str();
     }
@@ -140,6 +141,10 @@ class Util {
             sum += addend;
         }
         return sum;
+    }
+
+    static bool HasOnlyZeros(const Bytes& bytes) {
+        return std::all_of(bytes.begin(), bytes.end(), [](uint8_t byte){ return byte == 0x00; });
     }
 
  private:

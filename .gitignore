@@ -14,6 +14,7 @@ python-impl/__pycache__/
 blspy.*.so
 .mypy_cache/
 .pytest_chache/
+.eggs/
 
 js_build
 node_modules
@@ -28,7 +29,6 @@ contrib/relic/bin
 contrib/relic/include/relic_conf.h
 contrib/relic/test/CTestTestfile.cmake
 contrib/gmp-6.1.2/
-contrib/libsodium-1.0.16/
 
 .idea
 .vscode
@@ -56,4 +56,8 @@ blsbench.*
 
 *.whl
 venv
+env/
 yarn-error.log
+
+.vs/
+out/
